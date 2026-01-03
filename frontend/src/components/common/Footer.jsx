@@ -74,7 +74,7 @@ const Footer = () => {
                 <img src="/Logo2.png" alt="logo" className="w-full h-full" />
               </motion.div>
               <span className="text-2xl font-medium text-white/70">
-                Enviromat
+                EcoCollect
               </span>
             </motion.div>
 
@@ -280,14 +280,16 @@ const Footer = () => {
               backgroundClip: "text",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
-              textShadow: "0 0 20px rgba(59, 247, 153, 0.3)"
+              //textShadow: "0 0 20px rgba(59, 247, 153, 0.3)"
+              textShadow: "0 0 20px rgba(30, 254, 10, 0.3)"
             }}
             whileHover={{
-              textShadow: "0 0 30px rgba(59, 247, 153, 0.5)"
+              //textShadow: "0 0 30px rgba(59, 247, 153, 0.5)"
+              textShadow: "0 0 30px rgba(1, 95, 48, 0.5)"
             }}
             transition={{ duration: 0.3 }}
           >
-            Waste Management
+            EcoCollect
           </motion.span>
         </motion.div>
 
@@ -307,7 +309,7 @@ const Footer = () => {
               whileHover={{ color: '#9CA3AF' }}
               transition={{ duration: 0.2 }}
             >
-              © 2026 Tech Squad. All rights reserved.
+              © 2026 CodeNix. All rights reserved.
             </motion.div>
             <div className="flex space-x-6 text-sm">
               {['Privacy Policy', 'Terms of Services', 'Accessibility'].map((policy, index) => (
