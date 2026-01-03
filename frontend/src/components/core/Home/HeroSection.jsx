@@ -340,7 +340,7 @@ const HeroSection = () => {
                 className="h-[98%] -translate-y-[0.9%] w-[95%] rounded-4xl overflow-hidden transform-gpu shadow-lg"
               >
                 <img
-                  src="https://images.unsplash.com/photo-1603977865139-05ba89d5eefe?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NzJ8fGdyZWVuJTIwd2FzdGUlMjBpbGx1c3RyYXRpb258ZW58MHwxfDB8fHwy"
+                  src="https://static.vecteezy.com/system/resources/previews/022/715/277/large_2x/3d-rendering-green-recycle-sign-with-globe-on-background-save-the-world-and-environment-concept-generat-ai-free-photo.jpg"
                   alt="Green leaves background"
                   className="w-full h-full object-cover"
                 />
