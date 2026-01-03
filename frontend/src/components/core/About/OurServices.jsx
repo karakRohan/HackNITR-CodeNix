@@ -1,7 +1,7 @@
 // components/about/OurServices.jsx
 import React, { useRef, useEffect } from 'react';
 import { motion } from 'motion/react';
-import { Home, Sun, Recycle, TreePine, Package } from 'lucide-react';
+import { Home, Sun, Recycle, TreePine, Package,ShoppingBasket } from 'lucide-react';
 import { useSelector } from 'react-redux';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -79,7 +79,16 @@ const OurServices = () => {
       title: "Waste Management",
       description: "Consulting and products for efficient waste management and recycling programs.",
       color: "from-blue-400 to-blue-600"
-    }
+    },
+    {
+     icon: <ShoppingBasket className="w-10 h-10" /> ,
+  title: "Recycled Products Marketplace",
+  description:
+    "A curated marketplace for products made from recycled waste, promoting circular economy practices and sustainable consumer choices.",
+  
+  color: "from-teal-400 to-cyan-500"
+}
+
   ];
 
   return (
