@@ -8,7 +8,6 @@ import UnauthenticatedOptions from './UnauthenticatedOptions';
 const UserDropdown = ({ isOpen, dropdownRef, user, isAuthenticated, handleNavigation, handleLogout }) => {
   const isDarkMode = useSelector(state => state.theme.isDarkMode);
 
-  // Theme-based styles
   const themeStyles = {
     dropdownBg: isDarkMode ? 'bg-gray-800/90' : 'bg-white/90',
     borderColor: isDarkMode ? 'border-gray-600/50' : 'border-gray-200/50'

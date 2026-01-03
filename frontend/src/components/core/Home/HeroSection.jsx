@@ -17,6 +17,7 @@ const HeroSection = () => {
   const rightImageRef = useRef(null);
   const proTeamCardRef = useRef(null);
   const decorativeElementsRef = useRef([]);
+  
 
   // Get theme state from Redux
   const isDarkMode = useSelector(state => state.theme.isDarkMode);
