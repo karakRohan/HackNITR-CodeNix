@@ -26,7 +26,7 @@ const ThemeToggle = ({ addToIconButtonsRefs, index, className = "" }) => {
       ref={(el) => addToIconButtonsRefs && addToIconButtonsRefs(el, index)}
       whileHover={{ scale: 1.03 }}
       whileTap={{ scale: 0.95 }}
-      onClick={handleToggle}
+      onClick={handleToggle}  
       className={`${themeStyles.buttonBg} backdrop-blur-xl border ${themeStyles.buttonBorder} rounded-full flex items-center justify-center ${themeStyles.buttonHover} transition-all duration-300 transform-gpu ${className}`}
       aria-label={`Switch to ${isDarkMode ? 'light' : 'dark'} mode`}
     >
