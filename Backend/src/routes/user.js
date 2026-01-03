@@ -1,51 +1,54 @@
-// Import the required modules
-const express = require("express")
-const router = express.Router()
+// Required modules
+const express = require("express");
+const router = express.Router();
 
-// Import the required controllers and middleware functions
+// Authentication controllers
 const {
   login,
   signup,
   sendotp,
   changePassword,
   logout,
-} = require("../controllers/Auth")
+} = require("../controllers/Auth");
 
-
+// Password reset controllers
 const {
   resetPasswordToken,
   resetPassword,
-} = require("../controllers/ResetPassword")
+} = require("../controllers/ResetPassword");
 
+// User profile controllers
 const {
   getUserProfile,
   updateUserProfile,
-} = require("../controllers/UserProfile")
+} = require("../controllers/UserProfile");
 
-const { auth } = require("../middleware/auth")
+// Authentication middleware
+const { auth } = require("../middleware/auth");
 
+// =======================================
+// Authentication Routes
+// =======================================
 
-// Define the routes for user authentication
-router.post("/login", login)
-router.post("/signup", signup)
-router.post("/sendotp", sendotp)
-router.post("/changepassword", auth, changePassword)
-router.post("/logout", logout)
-// Route for generating a reset password token
-router.post("/reset-password-token", resetPasswordToken)
+router.post("/login", login);
+router.post("/signup", signup);
+router.post("/sendotp", sendotp);
+router.post("/changepassword", auth, changePassword);
+router.post("/logout", logout);
 
-// Route for resetting user's password after verification
-router.post("/reset-password", resetPassword)
+// =======================================
+// Password Reset Routes
+// =======================================
 
-// ********************************************************************************************************
-//                                      Profile routes (TODO: Implement controllers)
-// ********************************************************************************************************
+router.post("/reset-password-token", resetPasswordToken);
+router.post("/reset-password", resetPassword);
 
-// Route for getting user profile
-router.get("/profile/:id", auth, getUserProfile)
+// =======================================
+// User Profile Routes
+// =======================================
 
-// Route for updating user profile
-router.put("/profile/:id", auth, updateUserProfile)
+router.get("/profile/:id", auth, getUserProfile);
+router.put("/profile/:id", auth, updateUserProfile);
 
-// Export the router for use in the main application
-module.exports = router
+// Export router
+module.exports = router;
