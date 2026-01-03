@@ -33,6 +33,6 @@ const NavigationLinks = ({ addToNavButtonsRefs }) => {
       ))}
     </nav>
   );
-};
+};  
 
 export default NavigationLinks;

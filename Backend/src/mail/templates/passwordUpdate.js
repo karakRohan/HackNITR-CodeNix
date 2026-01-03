@@ -25,7 +25,7 @@ exports.passwordUpdated = (email, name) => {
             background: #fff;
             border-radius: 25px;
             box-shadow: 0 8px 25px rgba(44, 95, 65, 0.15);
-            border-top: 6px solid #6ab394;
+            border-top: 5px solid #6ab394;
             position: relative;
             overflow: hidden;
         }
