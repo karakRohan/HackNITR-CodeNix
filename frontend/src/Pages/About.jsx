@@ -12,6 +12,7 @@ import WhyChooseUs from '../components/core/About/ChooseUs';
 import OurTeam from '../components/core/About/OurTeam';
 import Footer from '../components/common/Footer';
 
+
 const AboutPage = () => {
   const pageRef = useRef(null);
   
