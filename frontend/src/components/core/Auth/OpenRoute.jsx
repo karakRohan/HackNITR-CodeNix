@@ -1,15 +1,12 @@
-// This will prevent authenticated users from accessing this route
-import { useSelector } from "react-redux"
-import { Navigate } from "react-router-dom"
+// Restricts access for authenticated users
+import { useSelector } from "react-redux";
+import { Navigate } from "react-router-dom";
 
-function OpenRoute({ children }) {
-  const { token } = useSelector((state) => state.auth)
+const OpenRoute = ({ children }) => {
+  const authToken = useSelector((state) => state.auth.token);
 
-  if (token === null) {
-    return children
-  } else {
-    return <Navigate to="/" />
-  }
-}
+  return authToken === null ? children : <Navigate to="/" />;
+};
 
-export default OpenRoute
+export default OpenRoute;
+
