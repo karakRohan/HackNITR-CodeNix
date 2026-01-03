@@ -82,13 +82,14 @@ const WhyChooseUs = () => {
   ];
 
   const benefits = [
-    "✓ Quality guaranteed eco-friendly materials",
-    "✓ Competitive pricing on sustainable products",
-    "✓ Fast delivery with carbon-neutral shipping",
-    "✓ Expert consultation on green building",
-    "✓ Comprehensive product warranties",
-    "✓ Community of sustainability advocates"
-  ];
+  "✓ Certified high-quality, eco-friendly materials",
+  "✓ Affordable and transparent pricing on sustainable products",
+  "✓ Fast and reliable delivery with carbon-neutral shipping",
+  "✓ Professional guidance for eco-friendly construction",
+  "✓ Strong product warranties for long-term reliability",
+  "✓ A growing community committed to sustainable living"
+];
+
 
   return (
     <section ref={sectionRef} className={`py-20 ${themeStyles.background} transition-colors duration-300`}>
