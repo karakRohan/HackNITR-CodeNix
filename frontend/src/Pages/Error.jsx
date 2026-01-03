@@ -34,13 +34,34 @@ function Error() {
 
         {/* Action Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-          <Link to="/">
-            <button className="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-medium text-white bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 ease-in-out">
-              <HiOutlineHome className="mr-2 text-xl group-hover:animate-pulse" />
-              Back to Home
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-400 rounded-xl opacity-0 group-hover:opacity-20 transition-opacity duration-200"></div>
-            </button>
-          </Link>
+         <Link to="/">
+  <button
+    className="
+      relative inline-flex items-center justify-center
+      px-8 py-4 text-lg font-semibold text-white
+      rounded-xl shadow-md
+      bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600
+      transition-all duration-200 ease-out
+      hover:scale-105 hover:shadow-xl
+      group
+    "
+  >
+    <span className="flex items-center gap-2 relative z-10">
+      <HiOutlineHome className="text-xl transition-transform duration-200 group-hover:scale-110 group-hover:animate-pulse" />
+      Go to Home
+    </span>
+
+    <span
+      className="
+        absolute inset-0 rounded-xl
+        bg-gradient-to-r from-blue-400 to-purple-400
+        opacity-0 group-hover:opacity-20
+        transition-opacity duration-200
+      "
+    />
+  </button>
+</Link>
+
           
           <button 
             onClick={() => navigate(-1)}
