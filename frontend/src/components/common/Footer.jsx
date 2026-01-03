@@ -280,14 +280,16 @@ const Footer = () => {
               backgroundClip: "text",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
-              textShadow: "0 0 20px rgba(59, 247, 153, 0.3)"
+              //textShadow: "0 0 20px rgba(59, 247, 153, 0.3)"
+              textShadow: "0 0 20px rgba(30, 254, 10, 0.3)"
             }}
             whileHover={{
-              textShadow: "0 0 30px rgba(59, 247, 153, 0.5)"
+              //textShadow: "0 0 30px rgba(59, 247, 153, 0.5)"
+              textShadow: "0 0 30px rgba(1, 95, 48, 0.5)"
             }}
             transition={{ duration: 0.3 }}
           >
-            Waste Management
+            EcoCollect
           </motion.span>
         </motion.div>
 
