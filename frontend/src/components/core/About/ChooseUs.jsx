@@ -82,13 +82,14 @@ const WhyChooseUs = () => {
   ];
 
   const benefits = [
-    "✓ Quality guaranteed eco-friendly materials",
-    "✓ Competitive pricing on sustainable products",
-    "✓ Fast delivery with carbon-neutral shipping",
-    "✓ Expert consultation on green building",
-    "✓ Comprehensive product warranties",
-    "✓ Community of sustainability advocates"
-  ];
+  "✓ Certified high-quality, eco-friendly materials",
+  "✓ Affordable and transparent pricing on sustainable products",
+  "✓ Fast and reliable delivery with carbon-neutral shipping",
+  "✓ Professional guidance for eco-friendly construction",
+  "✓ Strong product warranties for long-term reliability",
+  "✓ A growing community committed to sustainable living"
+];
+
 
   return (
     <section ref={sectionRef} className={`py-20 ${themeStyles.background} transition-colors duration-300`}>
@@ -104,7 +105,7 @@ const WhyChooseUs = () => {
             Why Choose <span className="text-purple-400">Us</span>
           </h2>
           <p className={`text-xl ${themeStyles.subtitle} max-w-3xl mx-auto transition-colors duration-300`}>
-            We're more than just a supplier – we're your partners in building a sustainable future
+            “We go beyond supplying products — we partner with you to create a more sustainable future.”
           </p>
         </motion.div>
 
@@ -159,7 +160,7 @@ const WhyChooseUs = () => {
                     Join Our Green Community
                   </h4>
                   <p className={`${themeStyles.cardText} transition-colors duration-300`}>
-                    Be part of a growing community committed to sustainable living and environmental responsibility.
+                    “Join a growing community dedicated to sustainable living and environmental responsibility.”
                   </p>
                 </div>
               </div>
