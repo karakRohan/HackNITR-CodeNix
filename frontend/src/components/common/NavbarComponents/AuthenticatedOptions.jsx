@@ -6,30 +6,35 @@ import UserDropdownItem from './UserDropdownItem';
 const AuthenticatedOptions = ({ handleNavigation, handleLogout, user }) => {
   const isDarkMode = useSelector(state => state.theme.isDarkMode);
   const isPicker = user?.accountType === 'Picker';
-  
+
   // Theme-based styles
   const themeStyles = {
     text: isDarkMode ? 'text-white' : 'text-gray-800',
     secondaryText: isDarkMode ? 'text-gray-300' : 'text-gray-500',
     borderColor: isDarkMode ? 'border-gray-600/50' : 'border-gray-200/50'
   };
-  
+
   return (
     <>
-      <div className={`px-4 py-2 border-b ${themeStyles.borderColor} transition-colors duration-300`}>
+      <div
+        className={`px-4 py-2 border-b transition-colors duration-300 ${themeStyles.borderColor}`}
+      >
         <p className={`text-sm font-medium ${themeStyles.text}`}>
-          {user?.firstName || 'User'} {user?.lastName || ''}
+          {(user?.firstName || "User") + " " + (user?.lastName || "")}
         </p>
+
         <p className={`text-xs ${themeStyles.secondaryText}`}>
-          {user?.email || 'user@example.com'}
+          {user?.email || "user@ecocollect.com"}
         </p>
+
         {isPicker && (
-          <p className="text-xs text-green-600 font-medium">
+          <p className="text-xs font-medium text-green-600">
             Waste Picker
           </p>
         )}
       </div>
-      
+
+
       {isPicker ? (
         <>
           <UserDropdownItem
@@ -62,7 +67,7 @@ const AuthenticatedOptions = ({ handleNavigation, handleLogout, user }) => {
           label="View Profile"
         />
       )}
-      
+
       <UserDropdownItem
         onClick={handleLogout}
         icon={
