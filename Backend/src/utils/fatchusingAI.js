@@ -15,6 +15,8 @@ Your task:
 - If latitude/longitude is missing for a picker, estimate distance using city/state/pinCode.
 - Return ONLY a JSON object with the nearest picker's ID.
 
+
+
 Waste Location:
 Lat: ${waste.lat ?? "N/A"}
 Lng: ${waste.lng ?? "N/A"}
