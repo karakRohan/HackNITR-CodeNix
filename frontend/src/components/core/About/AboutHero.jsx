@@ -81,8 +81,7 @@ const AboutHero = () => {
             ref={descRef}
             className={`text-xl lg:text-2xl ${themeStyles.subtitle} max-w-4xl mx-auto mb-12 leading-relaxed transition-colors duration-300`}
           >
-            We're passionate about providing eco-friendly materials and solutions that help create a 
-            greener tomorrow. Join us in our mission to make sustainable living accessible to everyone.
+            “Our mission is to empower greener choices with environmentally responsible materials and solutions — join us in shaping a sustainable tomorrow.”
           </p>
 
           {/* Feature Icons */}
