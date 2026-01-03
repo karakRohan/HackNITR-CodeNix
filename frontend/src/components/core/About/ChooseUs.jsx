@@ -105,7 +105,7 @@ const WhyChooseUs = () => {
             Why Choose <span className="text-purple-400">Us</span>
           </h2>
           <p className={`text-xl ${themeStyles.subtitle} max-w-3xl mx-auto transition-colors duration-300`}>
-            We're more than just a supplier – we're your partners in building a sustainable future
+            “We go beyond supplying products — we partner with you to create a more sustainable future.”
           </p>
         </motion.div>
 
