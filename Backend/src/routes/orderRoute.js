@@ -1,33 +1,62 @@
 // routes/orderRoutes.js
 const express = require("express");
 const router = express.Router();
+
 const Order = require("../models/OrderModel");
 const User = require("../models/User");
-const { createOrder, requestOrder,getAllItems, addToCard,cancelFromAddToCard, cancelRequestOfOrder,createmultiplkeOrder, getAllOrdersByUser, getAllAddToCardsByUser } = require("../controllers/OrderController");
+
+const {
+  createOrder,
+  requestOrder,
+  getAllItems,
+  addToCard,
+  cancelFromAddToCard,
+  cancelRequestOfOrder,
+  createmultiplkeOrder,
+  getAllOrdersByUser,
+  getAllAddToCardsByUser,
+} = require("../controllers/OrderController");
+
 const { auth } = require("../middleware/auth");
 
-// Create new order (requires authentication)
+// =======================================
+// Order Creation & Requests
+// =======================================
+
+// Create a new order (authenticated)
 router.post("/create", auth, createOrder);
 
-// Request an order (requires authentication)
+// Request an order (authenticated)
 router.post("/request-order", auth, requestOrder);
 
-// Get all orders for a user (requires authentication)
-router.get("/get-all-orders/user/:userId", auth, getAllOrdersByUser)
+// =======================================
+// User Orders & Cart
+// =======================================
 
-// Get all addToCards for a user (requires authentication)
-router.post("/get-all-addtocards/user", auth, getAllAddToCardsByUser)
+// Get all orders placed by a user (authenticated)
+router.get("/get-all-orders/user/:userId", auth, getAllOrdersByUser);
 
-// Add to cart (requires authentication)
-router.post("/add-to-card", auth, addToCard)
+// Get all add-to-cart items for a user (authenticated)
+router.post("/get-all-addtocards/user", auth, getAllAddToCardsByUser);
 
-// Cancel order request (requires authentication)
-router.post('/cancel-order', auth, cancelRequestOfOrder)
+// Add item to cart (authenticated)
+router.post("/add-to-card", auth, addToCard);
 
-// Cancel from add to card (requires authentication)
-router.post('/cancel-from-addtocard', auth, cancelFromAddToCard)
+// =======================================
+// Order Cancellation
+// =======================================
 
-// get all items listed items to show in shop (public route)
-router.get("/get-items",getAllItems);
+// Cancel an order request (authenticated)
+router.post("/cancel-order", auth, cancelRequestOfOrder);
+
+// Remove item from add-to-cart (authenticated)
+router.post("/cancel-from-addtocard", auth, cancelFromAddToCard);
+
+// =======================================
+// Public Routes
+// =======================================
+
+// Get all listed items for shop (public)
+router.get("/get-items", getAllItems);
 
 module.exports = router;

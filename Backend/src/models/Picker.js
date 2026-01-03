@@ -1,21 +1,23 @@
-// Import the Mongoose library
+// Import mongoose
 const mongoose = require("mongoose");
 
+// Picker schema definition
 const pickerSchema = new mongoose.Schema(
   {
     firstName: {
-      minLength: 2,
-      maxLength: 20,
       type: String,
       required: true,
       trim: true,
+      minLength: 2,
+      maxLength: 20,
     },
+
     lastName: {
-      minLength: 2,
-      maxLength: 20,
       type: String,
       required: true,
       trim: true,
+      minLength: 2,
+      maxLength: 20,
     },
 
     email: {
@@ -29,20 +31,24 @@ const pickerSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+
     accountType: {
       type: String,
       enum: ["Picker"],
       default: "Picker",
       required: true,
     },
+
     image: {
       type: String,
     },
+
     contactNumber: {
       type: String,
       trim: true,
       default: "",
     },
+
     address: {
       street: {
         type: String,
@@ -65,6 +71,7 @@ const pickerSchema = new mongoose.Schema(
         default: "",
       },
     },
+
     vehicleDetails: {
       vehicleType: {
         type: String,
@@ -78,30 +85,35 @@ const pickerSchema = new mongoose.Schema(
         default: "",
       },
     },
+
     serviceAreas: [
       {
         type: String,
         trim: true,
       },
     ],
+
     assignedPickups: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "PickupRequest", // Waste pickups
+        ref: "PickupRequest",
       },
     ],
+
     emergencyPickups: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "PickupRequest", // Waste pickups
+        ref: "PickupRequest",
       },
     ],
+
     assignedDeliveries: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Order", // Online store deliveries
+        ref: "Order",
       },
     ],
+
     timeSlots: [
       {
         startTime: {
@@ -114,22 +126,25 @@ const pickerSchema = new mongoose.Schema(
         },
       },
     ],
+
     creditPoints: {
       type: Number,
-      default: 0, // initial points
+      default: 0,
     },
+
     rating: {
       average: {
         type: Number,
-        default: 0,
         min: 0,
         max: 5,
+        default: 0,
       },
       count: {
         type: Number,
         default: 0,
       },
     },
+
     isActive: {
       type: Boolean,
       default: true,
@@ -138,9 +153,10 @@ const pickerSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-// Create indexes for better query performance
-// Note: email index is automatically created by unique: true
+// Indexes for query optimization
+// Note: email index is auto-created due to unique: true
 pickerSchema.index({ serviceAreas: 1 });
 pickerSchema.index({ isActive: 1 });
 
+// Export Picker model
 module.exports = mongoose.model("Picker", pickerSchema);

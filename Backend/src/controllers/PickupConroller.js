@@ -1,10 +1,12 @@
-const picker=require("../models/Picker")
+const picker = require("../models/Picker");
 const { auth } = require("../middleware/auth");
 const Order = require("../models/OrderModel");
 const PickupRequest = require("../models/PickupRequestModel");
 const Picker = require("../models/Picker");
 
-// 2. Remove from runner's bag
+// =======================================
+// Remove order or pickup from picker's bag
+// =======================================
 exports.removeOrderOrPickupFromBag = async (req, res) => {
   const { type, itemId } = req.body;
   const runnerId = req.user.id;
@@ -14,16 +16,19 @@ exports.removeOrderOrPickupFromBag = async (req, res) => {
     return res.status(400).json({ error: "Type and itemId are required" });
   }
 
-  if (!['order', 'pickup'].includes(type)) {
-    return res.status(400).json({ error: "Invalid type. Must be 'order' or 'pickup'" });
+  if (!["order", "pickup"].includes(type)) {
+    return res
+      .status(400)
+      .json({ error: "Invalid type. Must be 'order' or 'pickup'" });
   }
 
   try {
     const runner = await picker.findById(runnerId);
-    if (!runner) return res.status(404).json({ error: "Picker not found" });
+    if (!runner) {
+      return res.status(404).json({ error: "Picker not found" });
+    }
 
     if (type === "order") {
-      // Check if the order is actually assigned to this picker
       if (!runner.assignedDeliveries.includes(itemId)) {
         return res.status(400).json({ error: "Order not in your bag" });
       }
@@ -37,7 +42,6 @@ exports.removeOrderOrPickupFromBag = async (req, res) => {
         (id) => id.toString() !== itemId
       );
     } else if (type === "pickup") {
-      // Check if the pickup is actually assigned to this picker
       if (!runner.assignedPickups.includes(itemId)) {
         return res.status(400).json({ error: "Pickup not in your bag" });
       }
@@ -53,13 +57,14 @@ exports.removeOrderOrPickupFromBag = async (req, res) => {
     }
 
     await runner.save();
-    res.status(200).json({ 
+
+    res.status(200).json({
       success: true,
       message: `${type} removed from runner's bag.`,
       data: {
         type,
-        itemId
-      }
+        itemId,
+      },
     });
   } catch (err) {
     console.error(err);
@@ -67,7 +72,9 @@ exports.removeOrderOrPickupFromBag = async (req, res) => {
   }
 };
 
-// 3. Mark delivery/pickup as done kajalagei che
+// =======================================
+// Mark delivery or pickup as completed
+// =======================================
 exports.doneDeliverOrPickup = async (req, res) => {
   const { type, itemId } = req.body;
   const runnerId = req.user.id;
@@ -77,23 +84,33 @@ exports.doneDeliverOrPickup = async (req, res) => {
     return res.status(400).json({ error: "Type and itemId are required" });
   }
 
-  if (!['order', 'pickup'].includes(type)) {
-    return res.status(400).json({ error: "Invalid type. Must be 'order' or 'pickup'" });
+  if (!["order", "pickup"].includes(type)) {
+    return res
+      .status(400)
+      .json({ error: "Invalid type. Must be 'order' or 'pickup'" });
   }
 
   try {
     const runner = await picker.findById(runnerId);
-    if (!runner) return res.status(404).json({ error: "Picker not found" });
+    if (!runner) {
+      return res.status(404).json({ error: "Picker not found" });
+    }
 
     let pointsEarned = 0;
 
     if (type === "order") {
       const order = await Order.findById(itemId);
-      if (!order || order.deliveredBy?.toString() !== runnerId)
-        return res.status(403).json({ error: "Unauthorized or not assigned" });
+
+      if (!order || order.deliveredBy?.toString() !== runnerId) {
+        return res
+          .status(403)
+          .json({ error: "Unauthorized or not assigned" });
+      }
 
       if (order.deliveryStatus !== "assigned") {
-        return res.status(400).json({ error: "Order is not ready for completion" });
+        return res
+          .status(400)
+          .json({ error: "Order is not ready for completion" });
       }
 
       order.deliveryStatus = "delivered";
@@ -108,18 +125,23 @@ exports.doneDeliverOrPickup = async (req, res) => {
       runner.creditPoints += pointsEarned;
     } else if (type === "pickup") {
       const pickup = await PickupRequest.findById(itemId);
-      if (!pickup || pickup.pickupBy?.toString() !== runnerId)
-        return res.status(403).json({ error: "Unauthorized or not assigned" });
+
+      if (!pickup || pickup.pickupBy?.toString() !== runnerId) {
+        return res
+          .status(403)
+          .json({ error: "Unauthorized or not assigned" });
+      }
 
       if (pickup.pickupStatus !== "assigned") {
-        return res.status(400).json({ error: "Pickup is not ready for completion" });
+        return res
+          .status(400)
+          .json({ error: "Pickup is not ready for completion" });
       }
 
       pickup.pickupStatus = "delivered";
       pickup.pickupDate = new Date();
       await pickup.save();
 
-      // Remove from both assigned and emergency pickups arrays
       runner.assignedPickups = runner.assignedPickups.filter(
         (id) => id.toString() !== itemId
       );
@@ -127,21 +149,21 @@ exports.doneDeliverOrPickup = async (req, res) => {
         (id) => id.toString() !== itemId
       );
 
-      // Give more points for emergency pickups
       pointsEarned = pickup.isEmergency ? 15 : 10;
       runner.creditPoints += pointsEarned;
     }
 
     await runner.save();
-    res.status(200).json({ 
+
+    res.status(200).json({
       success: true,
       message: `${type} marked as completed.`,
       data: {
         type,
         itemId,
         pointsEarned,
-        totalCreditPoints: runner.creditPoints
-      }
+        totalCreditPoints: runner.creditPoints,
+      },
     });
   } catch (err) {
     console.error(err);
@@ -149,16 +171,18 @@ exports.doneDeliverOrPickup = async (req, res) => {
   }
 };
 
-// 4. Get all available pickup requests (not yet assigned)
+// =======================================
+// Get all available pickup requests
+// =======================================
 exports.getAvailablePickups = async (req, res) => {
   try {
     const availablePickups = await PickupRequest.find({
-      pickupStatus: "processing"
-    }).populate('userId', 'firstName lastName contactNumber');
+      pickupStatus: "processing",
+    }).populate("userId", "firstName lastName contactNumber");
 
     res.status(200).json({
       success: true,
-      data: availablePickups
+      data: availablePickups,
     });
   } catch (err) {
     console.error(err);
@@ -166,25 +190,28 @@ exports.getAvailablePickups = async (req, res) => {
   }
 };
 
-// 5. Get picker's current assignments
+// =======================================
+// Get picker's current assignments
+// =======================================
 exports.getPickerAssignments = async (req, res) => {
   const pickerId = req.user.id;
 
   try {
-    const pickerData = await picker.findById(pickerId)
+    const pickerData = await picker
+      .findById(pickerId)
       .populate({
-        path: 'assignedPickups',
+        path: "assignedPickups",
         populate: {
-          path: 'userId',
-          select: 'firstName lastName contactNumber'
-        }
+          path: "userId",
+          select: "firstName lastName contactNumber",
+        },
       })
       .populate({
-        path: 'assignedDeliveries',
+        path: "assignedDeliveries",
         populate: {
-          path: 'userId',
-          select: 'firstName lastName contactNumber'
-        }
+          path: "userId",
+          select: "firstName lastName contactNumber",
+        },
       });
 
     if (!pickerData) {
@@ -196,8 +223,8 @@ exports.getPickerAssignments = async (req, res) => {
       data: {
         assignedPickups: pickerData.assignedPickups,
         assignedDeliveries: pickerData.assignedDeliveries,
-        creditPoints: pickerData.creditPoints
-      }
+        creditPoints: pickerData.creditPoints,
+      },
     });
   } catch (err) {
     console.error(err);
@@ -205,15 +232,16 @@ exports.getPickerAssignments = async (req, res) => {
   }
 };
 
-
-// 6. Get pickup request details
+// =======================================
+// Get pickup request details
+// =======================================
 exports.getPickupDetails = async (req, res) => {
   const { pickupId } = req.params;
 
   try {
     const pickup = await PickupRequest.findById(pickupId)
-      .populate('userId', 'firstName lastName contactNumber address')
-      .populate('pickupBy', 'firstName lastName contactNumber');
+      .populate("userId", "firstName lastName contactNumber address")
+      .populate("pickupBy", "firstName lastName contactNumber");
 
     if (!pickup) {
       return res.status(404).json({ error: "Pickup request not found" });
@@ -221,7 +249,7 @@ exports.getPickupDetails = async (req, res) => {
 
     res.status(200).json({
       success: true,
-      data: pickup
+      data: pickup,
     });
   } catch (err) {
     console.error(err);
