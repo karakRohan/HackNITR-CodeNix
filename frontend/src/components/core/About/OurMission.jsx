@@ -15,17 +15,37 @@ const OurMission = () => {
   const sectionRef = useRef(null);
   const cardsRef = useRef([]);
 
-  
+
+  // // Theme-based styles
+  // const themeStyles = {
+  //   background: isDarkMode ? 'bg-gray-900' : 'bg-[#F9FAFB]',
+  //   heading: isDarkMode ? 'text-white' : 'text-gray-900',
+  //   subtitle: isDarkMode ? 'text-gray-300' : 'text-gray-600',
+  //   cardBg: isDarkMode ? 'bg-gray-800 border-gray-600' : 'bg-gray-50 border-gray-200',
+  //   cardIconBg: isDarkMode ? 'bg-gray-700' : 'bg-white',
+  //   cardTitle: isDarkMode ? 'text-white' : 'text-gray-900',
+  //   cardText: isDarkMode ? 'text-gray-300' : 'text-gray-600'
+  // };
+
   // Theme-based styles
-  const themeStyles = {
-    background: isDarkMode ? 'bg-gray-900' : 'bg-[#F9FAFB]',
-    heading: isDarkMode ? 'text-white' : 'text-gray-900',
-    subtitle: isDarkMode ? 'text-gray-300' : 'text-gray-600',
-    cardBg: isDarkMode ? 'bg-gray-800 border-gray-600' : 'bg-gray-50 border-gray-200',
-    cardIconBg: isDarkMode ? 'bg-gray-700' : 'bg-white',
-    cardTitle: isDarkMode ? 'text-white' : 'text-gray-900',
-    cardText: isDarkMode ? 'text-gray-300' : 'text-gray-600'
-  };
+const themeStyles = {
+  background: isDarkMode ? 'bg-gray-900' : 'bg-gray-50',
+
+  heading: isDarkMode ? 'text-white' : 'text-gray-900',
+  subtitle: isDarkMode ? 'text-gray-300' : 'text-gray-600',
+
+  card: {
+    bg: isDarkMode
+      ? 'bg-gray-800 border border-gray-600'
+      : 'bg-gray-50 border border-gray-200',
+
+    iconBg: isDarkMode ? 'bg-gray-700' : 'bg-white',
+
+    title: isDarkMode ? 'text-white' : 'text-gray-900',
+    text: isDarkMode ? 'text-gray-300' : 'text-gray-600'
+  }
+};
+
 
   useEffect(() => {
     if (!sectionRef.current) return;
