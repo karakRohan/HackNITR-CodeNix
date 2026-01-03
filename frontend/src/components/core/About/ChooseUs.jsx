@@ -160,7 +160,7 @@ const WhyChooseUs = () => {
                     Join Our Green Community
                   </h4>
                   <p className={`${themeStyles.cardText} transition-colors duration-300`}>
-                    Be part of a growing community committed to sustainable living and environmental responsibility.
+                    “Join a growing community dedicated to sustainable living and environmental responsibility.”
                   </p>
                 </div>
               </div>
