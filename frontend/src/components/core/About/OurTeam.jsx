@@ -54,7 +54,7 @@ const OurTeam = () => {
 
   const team = [
     {
-    name: "Rohan Karak(Team Lead)",
+    name: "Rohan Karak(TeamLead)",
     role: "Backend Developer(MERN)",
     bio: "Full stack developer specializing in web applications and system architecture.",
     image: "/api/placeholder/300/300",
