@@ -249,13 +249,13 @@ const HeroSection = () => {
               {/* Main Heading */}
               <div className="space-y-1">
                 <p ref={subtitleRef} className={`${themeStyles.secondaryText} text-lg transition-colors duration-300`}>
-                  Sculpting the Future with Green Materials
+                  Building the Future of a Greener World with Eco-Friendly Materials
                 </p>
 
                 <h1 ref={headingRef} className={`text-6xl lg:text-7xl font-medium ${themeStyles.text} leading-tighter transform-gpu transition-colors duration-300`}>
-                  Leading the Way
+                  Driving Innovation
                   <br />
-                  in <span className="text-[#08DF73]">Sustainable</span>
+                  in <span className="text-[#08DF73]">Eco-Friendly</span>
                   <br />
                   Materials
                 </h1>
