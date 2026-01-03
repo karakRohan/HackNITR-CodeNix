@@ -127,7 +127,7 @@ const Home = () => {
             text="Shaping a greener future, One waste at a time"
             speed={40}
             direction="right"
-            className="bg-purple-300 border-y-purple-400 w-[110%]"
+            className="bg-gradient-to-r from-green-300 to-blue-400 border-y-green-400 w-[110%]"
             textClassName="text-4xl md:text-5xl font-medium text-gray-600"
             pauseOnHover={false}
           />
@@ -139,7 +139,7 @@ const Home = () => {
             text="Join the movement for a sustainable tomorrow!"
             speed={40}
             direction="left"
-            className="bg-purple-300 border-y-purple-400 w-[110%]"
+            className="bg-gradient-to-r from-green-300 to-blue-400 border-y-green-400 w-[110%]"
             textClassName="text-4xl md:text-5xl font-medium text-gray-600"
             pauseOnHover={false}
           />
