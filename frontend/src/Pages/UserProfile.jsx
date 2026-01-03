@@ -12,21 +12,25 @@ import WasteSoldTrend from '../components/core/UserProfile/WasteSoldTrend';
 import SpendingHistory from '../components/core/UserProfile/SpendingHistory';
 import CreditSpendingTimeline from '../components/core/UserProfile/CreditSpendingTimeline';
 
-const UserProfile = () => {
-  const pageRef = useRef(null);
-  const dispatch = useDispatch();
-  
-  // Get theme state from Redux
-  const isDarkMode = useSelector(state => state.theme.isDarkMode);
-  const { user } = useSelector((state) => state.profile);
-  
-  const [showCreditHistory, setShowCreditHistory] = useState(false);
 
-  // Theme-based styles
+const UserProfile = () => {
+  const containerRef = useRef(null);
+  const dispatch = useDispatch();
+
+  // Redux state selectors
+  const isDarkMode = useSelector((state) => state.theme.isDarkMode);
+  const { user } = useSelector((state) => state.profile);
+
+  const [isCreditHistoryVisible, setIsCreditHistoryVisible] = useState(false);
+
+  // Theme-based class mappings
   const themeStyles = {
-    background: isDarkMode ? 'bg-gray-900' : 'bg-[#F9FAFB]',
-    contentCard: isDarkMode ? 'bg-gray-800 border-gray-600' : 'bg-white border-gray-200'
+    background: isDarkMode ? "bg-gray-900" : "bg-[#F9FAFB]",
+    contentCard: isDarkMode
+      ? "bg-gray-800 border-gray-600"
+      : "bg-white border-gray-200",
   };
+
 
   // TODO: Replace with real API data - Sample user data
   const [userData] = useState({
