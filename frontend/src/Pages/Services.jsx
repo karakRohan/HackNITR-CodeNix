@@ -32,13 +32,14 @@ const ServicePage = () => {
     landmark: "",
   };
 
-  const initialPickupType = {
-    id: "standard",
-    name: "Standard Pickup",
-    description: "Scheduled pickup within 2-4 days",
-    duration: "2-4 days",
-    reduction: 0,
-  };
+  const initialPickupType = {};
+
+initialPickupType.id = "standard";
+initialPickupType.name = "Standard Pickup";
+initialPickupType.description = "Scheduled pickup within 2-4 days";
+initialPickupType.duration = "2-4 days";
+initialPickupType.reduction = 0;
+
 
   // State management
   const [uploadedImages, setUploadedImages] = useState([]);
