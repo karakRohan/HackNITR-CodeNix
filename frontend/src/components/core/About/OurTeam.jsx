@@ -54,8 +54,8 @@ const OurTeam = () => {
 
   const team = [
     {
-    name: "Rohan Karak",
-    role: "Full Stack Developer",
+    name: "Rohan Karak(Team Lead)",
+    role: "Backend Developer(MERN)",
     bio: "Full stack developer specializing in web applications and system architecture.",
     image: "/api/placeholder/300/300",
     color: "from-green-400 to-emerald-500",
@@ -64,7 +64,7 @@ const OurTeam = () => {
   },
      {
     name: "Srinjoy Mahanti",
-    role: "Backend Developer",
+    role: "Backend Developer(MERN)",
     bio: "Backend developer focused on building robust and scalable server-side solutions.",
     image: "/api/placeholder/300/300",
     color: "from-orange-400 to-red-500",
@@ -84,7 +84,7 @@ const OurTeam = () => {
    {
     name: "Diganta Maity",
     role: "UI UXDeveloper",
-    bio: "Full stack developer specializing in web applications and system architecture.",
+    bio: "UI/UX designer dedicated to crafting user-friendly and visually appealing digital experiences.",
     image: "/api/placeholder/300/300",
     color: "from-rose-400 to-fuchsia-500",
     email: "mailto:digantamaity96@gamil.com",
