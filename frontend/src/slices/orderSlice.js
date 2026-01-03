@@ -24,7 +24,7 @@ const orderSlice = createSlice({
       state.error = action.payload;
     },
     clearOrderError(state) {
-      state.error = null;
+      state.error = null; 
     },
   },
 });
