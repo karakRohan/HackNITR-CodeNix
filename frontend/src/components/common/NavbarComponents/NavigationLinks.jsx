@@ -15,7 +15,7 @@ const NavigationLinks = ({ addToNavButtonsRefs }) => {
     { to: "/about", label: "About" }
   ];
 
-  // Theme-based styles
+  
   const themeStyles = {
     navBg: isDarkMode ? 'bg-gray-800/30' : 'bg-white/30',
     borderColor: isDarkMode ? 'border-gray-600/20' : 'border-white/20'
