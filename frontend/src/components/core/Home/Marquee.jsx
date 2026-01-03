@@ -115,4 +115,5 @@ const EnhancedMarquee = ({
   );
 };
 
+
 export default EnhancedMarquee;
