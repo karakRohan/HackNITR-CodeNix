@@ -132,7 +132,7 @@ const PickerNavbar = () => {
               <img src="/Logo.png" alt="Logo" className="w-4 h-4" />
             </div>
             <span className="text-[18px] font-[500] tracking-tight text-gray-900">
-              EnviroMat
+              EcoCollect
             </span>
           </motion.button>
 

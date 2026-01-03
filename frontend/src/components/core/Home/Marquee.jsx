@@ -3,8 +3,8 @@ import React, { useEffect, useRef } from 'react';
 import { motion } from 'motion/react';
 import gsap from 'gsap';
 
-const EnhancedMarquee = ({ 
-  text = "Shaping a greener future, One waste at a time", 
+const EnhancedMarquee = ({
+  text = "Shaping a greener future, One waste at a time",
   speed = 50,
   pauseOnHover = true,
   direction = 'left',
@@ -17,7 +17,7 @@ const EnhancedMarquee = ({
   useEffect(() => {
     const container = containerRef.current;
     const content = contentRef.current;
-    
+
     if (!container || !content) return;
 
     // Clone for seamless loop
@@ -36,7 +36,7 @@ const EnhancedMarquee = ({
 
     // Create timeline
     const tl = gsap.timeline({ repeat: -1 });
-    
+
     if (direction === 'right') {
       // For right direction: content starts off-screen left, clone starts visible
       tl.to([content, clone], {
@@ -92,7 +92,7 @@ const EnhancedMarquee = ({
       className={`overflow-hidden whitespace-nowrap w-[110%] -translate-x-1 py-4 border-y border-gray-400 ${className}`}
       ref={containerRef}
     >
-      <div 
+      <div
         ref={contentRef}
         className="inline-flex items-center"
         style={{ gap: '6rem' }}
@@ -101,8 +101,8 @@ const EnhancedMarquee = ({
           <motion.span
             key={index}
             className="text-3xl font-medium text-gray-700 tracking-wider"
-            
-            style={{ 
+
+            style={{
               textShadow: '0 2px 4px rgba(0,0,0,0.1)',
               fontFamily: 'system-ui, -apple-system, sans-serif'
             }}
@@ -114,5 +114,6 @@ const EnhancedMarquee = ({
     </motion.div>
   );
 };
+
 
 export default EnhancedMarquee;

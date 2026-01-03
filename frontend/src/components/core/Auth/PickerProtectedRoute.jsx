@@ -28,7 +28,6 @@ function PickerProtectedRoute({ children }) {
   if (user?.accountType === ACCOUNT_TYPE.PICKER && !isPickerProfileComplete(user)) {
     return <Navigate to="/picker-edit-profile" replace />;
   }
-
   return children;
 }
 

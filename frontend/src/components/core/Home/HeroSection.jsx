@@ -250,13 +250,13 @@ const HeroSection = () => {
               {/* Main Heading */}
               <div className="space-y-1">
                 <p ref={subtitleRef} className={`${themeStyles.secondaryText} text-lg transition-colors duration-300`}>
-                  Sculpting the Future with Green Materials
+                  Building the Future of a Greener World with Eco-Friendly Materials
                 </p>
 
                 <h1 ref={headingRef} className={`text-6xl lg:text-7xl font-medium ${themeStyles.text} leading-tighter transform-gpu transition-colors duration-300`}>
-                  Leading the Way
+                  Driving Innovation
                   <br />
-                  in <span className="text-[#08DF73]">Sustainable</span>
+                  in <span className="text-[#08DF73]">Eco-Friendly</span>
                   <br />
                   Materials
                 </h1>
@@ -310,23 +310,13 @@ const HeroSection = () => {
               <div className="flex space-x-4 pt-8">
                 <div 
                   ref={(el) => addToImagesRefs(el, 0)}
-                  className="w-25 h-30 lg:w-30 lg:h-35 bg-gray-300 rounded-xl overflow-hidden transform-gpu hover:shadow-lg transition-shadow duration-300"
                 >
-                  <img
-                    src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&h=400&fit=crop&crop=center"
-                    alt="Sustainable product 1"
-                    className="w-full h-full object-cover"
-                  />
+                  
                 </div>
                 <div 
                   ref={(el) => addToImagesRefs(el, 1)}
-                  className="w-25 h-30 lg:w-30 lg:h-35 bg-green-200 rounded-xl overflow-hidden transform-gpu hover:shadow-lg transition-shadow duration-300"
                 >
-                  <img
-                    src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=400&h=400&fit=crop&crop=center"
-                    alt="Sustainable product 2"
-                    className="w-full h-full object-cover"
-                  />
+              
                 </div>
               </div>
             </div>
@@ -341,7 +331,7 @@ const HeroSection = () => {
                 className="h-[98%] -translate-y-[0.9%] w-[95%] rounded-4xl overflow-hidden transform-gpu shadow-lg"
               >
                 <img
-                  src="https://images.unsplash.com/photo-1603977865139-05ba89d5eefe?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NzJ8fGdyZWVuJTIwd2FzdGUlMjBpbGx1c3RyYXRpb258ZW58MHwxfDB8fHwy"
+                  src="https://static.vecteezy.com/system/resources/previews/022/715/277/large_2x/3d-rendering-green-recycle-sign-with-globe-on-background-save-the-world-and-environment-concept-generat-ai-free-photo.jpg"
                   alt="Green leaves background"
                   className="w-full h-full object-cover"
                 />

@@ -1,7 +1,7 @@
 {
   "name": "enviromat-main",
   "version": "1.0.0",
-  "description": "<div align=\"center\">   <img src=\"frontend/public/Logo.png\" alt=\"EnviroMat Logo\" width=\"200\"/>",
+  "description": "<div align=\"center\">   <img src=\"client/public/Logo.png\" alt=\"EnviroMat Logo\" width=\"200\"/>",
   "main": "index.js",
   
   "scripts": {

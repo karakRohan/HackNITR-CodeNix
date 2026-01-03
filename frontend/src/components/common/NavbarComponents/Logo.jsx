@@ -8,12 +8,24 @@ const Logo = ({ logoRef }) => {
   const isDarkMode = useSelector(state => state.theme.isDarkMode);
 
   // Theme-based styles
-  const themeStyles = {
-    background: isDarkMode ? 'bg-gray-800/30' : 'bg-[#f9fafb4f]',
-    hoverBg: isDarkMode ? 'hover:bg-gray-700/50' : 'hover:bg-[#f9fafb8f]',
-    text: isDarkMode ? 'text-white' : 'text-gray-900',
-    logoContainer: 'bg-green-500' // Keep green for brand consistency
+const themeStyles = (() => {
+  return {
+    background: isDarkMode
+      ? "bg-gray-800/30"
+      : "bg-[#f9fafb4f]",
+
+    hoverBg: isDarkMode
+      ? "hover:bg-gray-700/50"
+      : "hover:bg-[#f9fafb8f]",
+
+    text: isDarkMode
+      ? "text-white"
+      : "text-gray-900",
+
+    logoContainer: "bg-green-500"
   };
+})();
+
 
   return (
     <NavLink 
@@ -25,7 +37,7 @@ const Logo = ({ logoRef }) => {
         <img src="/Logo.png" alt="Logo" className="w-4 h-4" />
       </div>
       <span className={`text-lg font-medium tracking-tight ${themeStyles.text} transition-colors duration-300`}>
-        EnviroMat
+        EcoCollect
       </span>
     </NavLink>
   );

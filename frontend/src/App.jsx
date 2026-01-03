@@ -1,4 +1,9 @@
 import React, { useEffect } from "react";
+import Chatbot from "./components/common/Chatbot/Chatbot.jsx";
+
+
+
+
 import OpenRoute from "./components/core/Auth/OpenRoute";
 import PrivateRoute from "./components/core/Auth/PrivateRoute";
 import PickerProtectedRoute from "./components/core/Auth/PickerProtectedRoute";
@@ -124,6 +129,7 @@ function App() {
         {/* Catch-all route for 404 errors */}
         <Route path="*" element={<Error />} />
       </Routes>
+      <Chatbot />
     </div>
   );
 }

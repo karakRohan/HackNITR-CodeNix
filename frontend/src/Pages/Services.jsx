@@ -122,7 +122,7 @@ initialPickupType.reduction = 0;
       const requests = uploadedImages.map(async (image) => {
         const formData = new FormData();
 
-        // Map frontend category to backend wasteType enum
+        // Map client category to backend wasteType enum
         const wasteTypeMapping = {
           plastic: "plastic",
           paper: "paper",
