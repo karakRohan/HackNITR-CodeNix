@@ -108,7 +108,7 @@ const Home = () => {
       <LegacySection />
 
       {/* Marquee Section */}
-      <section className="relative h-52 mt-36 flex items-center justify-center overflow-hidden">
+       <section className="relative h-52 mt-36 flex items-center justify-center overflow-hidden">
         <div className="absolute w-full rotate-5">
           <InfiniteMarquee
             text="Shaping a greener future, One waste at a time"
@@ -128,7 +128,7 @@ const Home = () => {
             textClassName="text-4xl md:text-5xl font-medium text-gray-600"
           />
         </div>
-      </section>
+      </section> 
 
       {/* Services Scroll Animation */}
       <section
