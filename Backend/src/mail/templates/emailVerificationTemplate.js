@@ -9,12 +9,12 @@ const otpTemplate = (otp) => {
         body {
             background: linear-gradient(135deg, #a8d5ba 0%, #7bc3a3 50%, #6ab394 100%);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            font-size: 16px;
+            font-size: 13px;
             line-height: 1.6;
             color: #2c5f41;
             margin: 0;
             padding: 0;
-            min-height: 100vh;
+            min-height: 100vh; 
         }
 
         .container {
