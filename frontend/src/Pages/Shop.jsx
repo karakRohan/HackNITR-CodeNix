@@ -127,7 +127,7 @@ const Shop = () => {
         const backendCartItems = await getAllAddToCardsByUser(user._id);
         
         if (backendCartItems && Array.isArray(backendCartItems)) {
-          // Transform backend cart items to match frontend structure
+          // Transform backend cart items to match client structure
           const transformedCartItems = backendCartItems.map(cartItem => {
             const order = cartItem.orderId || cartItem;
             return {

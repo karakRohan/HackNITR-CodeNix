@@ -57,7 +57,7 @@ exports.resetPasswordToken = async (req, res) => {
 
 exports.resetPassword = async (req, res) => {
   try {
-    //frontend ne teeno chij body me insert krdi token ko url me pass kiya tha fe ne body me pass krdia
+    //client ne teeno chij body me insert krdi token ko url me pass kiya tha fe ne body me pass krdia
     const { password, confirmPassword, token } = req.body
 
     if (confirmPassword !== password) {

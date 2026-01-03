@@ -73,8 +73,8 @@ const OurTeam = () => {
   },
     {
     name: "Chandan Gorain",
-    role: "Frontend Developer",
-    bio: "Creative designer and frontend developer focused on building intuitive user experiences.",
+    role: "client Developer",
+    bio: "Creative designer and client developer focused on building intuitive user experiences.",
     image: "/api/placeholder/300/300",
     color: "from-indigo-400 to-violet-500",
 
