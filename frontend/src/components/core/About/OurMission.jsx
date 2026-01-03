@@ -15,6 +15,7 @@ const OurMission = () => {
   const sectionRef = useRef(null);
   const cardsRef = useRef([]);
 
+  
   // Theme-based styles
   const themeStyles = {
     background: isDarkMode ? 'bg-gray-900' : 'bg-[#F9FAFB]',
