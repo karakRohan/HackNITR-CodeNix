@@ -67,7 +67,7 @@ const OurTeam = () => {
     role: "Backend Developer",
     bio: "Backend developer focused on building robust and scalable server-side solutions.",
     image: "/api/placeholder/300/300",
-    color: "from-green-400 to-emerald-500",
+    color: "from-orange-400 to-red-500",
     email: "mailto:srinjoymahanti@gmail.com",
     linkedin: "https://www.linkedin.com/in/srinjoy-mahanti-6168b5306/"
   },
@@ -76,7 +76,8 @@ const OurTeam = () => {
     role: "Frontend Developer",
     bio: "Creative designer and frontend developer focused on building intuitive user experiences.",
     image: "/api/placeholder/300/300",
-    color: "from-green-400 to-emerald-500",
+    color: "from-indigo-400 to-violet-500",
+
     email: "mailto:chandangorain111@gmail.com",
     linkedin: "https://www.linkedin.com/in/chandangorain/"
   },
@@ -85,7 +86,7 @@ const OurTeam = () => {
     role: "UI UXDeveloper",
     bio: "Full stack developer specializing in web applications and system architecture.",
     image: "/api/placeholder/300/300",
-    color: "from-green-400 to-emerald-500",
+    color: "from-rose-400 to-fuchsia-500",
     email: "mailto:digantamaity96@gamil.com",
     linkedin: "https://www.linkedin.com/in/diganta-maity-94737935a?utm_source=share_via&utm_content=profile&utm_medium=member_android"
   },
