@@ -1,4 +1,6 @@
 import React, { useEffect } from "react";
+import Chatbot from "./components/common/Chatbot/Chatbot.jsx";
+
 
 
 
@@ -127,6 +129,7 @@ function App() {
         {/* Catch-all route for 404 errors */}
         <Route path="*" element={<Error />} />
       </Routes>
+      <Chatbot />
     </div>
   );
 }
