@@ -24,21 +24,23 @@ const ServicePage = () => {
   const isDarkMode = useSelector((state) => state.theme.isDarkMode);
 
   // Initial state values for proper reset
-  const initialAddress = {
-    street: "",
-    city: "",
-    state: "",
-    pincode: "",
-    landmark: "",
-  };
+ const initialAddress = {};
 
-  const initialPickupType = {
-    id: "standard",
-    name: "Standard Pickup",
-    description: "Scheduled pickup within 2-4 days",
-    duration: "2-4 days",
-    reduction: 0,
-  };
+initialAddress.street = "";
+initialAddress.city = "";
+initialAddress.state = "";
+initialAddress.pincode = "";
+initialAddress.landmark = "";
+
+
+  const initialPickupType = {};
+
+initialPickupType.id = "standard";
+initialPickupType.name = "Standard Pickup";
+initialPickupType.description = "Scheduled pickup within 2-4 days";
+initialPickupType.duration = "2-4 days";
+initialPickupType.reduction = 0;
+
 
   // State management
   const [uploadedImages, setUploadedImages] = useState([]);
