@@ -1,0 +1,13 @@
+{
+  "name": "enviromat-main",
+  "version": "1.0.0",
+  "description": "<div align=\"center\">   <img src=\"frontend/public/Logo.png\" alt=\"EnviroMat Logo\" width=\"200\"/>",
+  "main": "index.js",
+  
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
