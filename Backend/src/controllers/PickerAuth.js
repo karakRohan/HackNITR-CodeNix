@@ -10,7 +10,7 @@ const {handleAuthSuccess} = require('../utils/tokenGenerator');
 require("dotenv").config()
 const validator = require("validator")
 
-// Helper function for email and password validation
+
 function validateEmailAndPassword(email, password, res) {
     if (!validator.isEmail(email)) {
         res.status(403).json({

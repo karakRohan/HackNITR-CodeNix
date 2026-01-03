@@ -37,7 +37,7 @@ const themeStyles = (() => {
         <img src="/Logo.png" alt="Logo" className="w-4 h-4" />
       </div>
       <span className={`text-lg font-medium tracking-tight ${themeStyles.text} transition-colors duration-300`}>
-        EnviroMat
+        EcoCollect
       </span>
     </NavLink>
   );
