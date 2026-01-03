@@ -22,7 +22,7 @@ const profileSlice = createSlice({
       state.loading = value.payload
     },
   },
-})
+}) 
 
 export const { setUser, setLoading } = profileSlice.actions
 
