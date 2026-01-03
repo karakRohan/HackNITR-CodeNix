@@ -24,13 +24,14 @@ const ServicePage = () => {
   const isDarkMode = useSelector((state) => state.theme.isDarkMode);
 
   // Initial state values for proper reset
-  const initialAddress = {
-    street: "",
-    city: "",
-    state: "",
-    pincode: "",
-    landmark: "",
-  };
+ const initialAddress = {};
+
+initialAddress.street = "";
+initialAddress.city = "";
+initialAddress.state = "";
+initialAddress.pincode = "";
+initialAddress.landmark = "";
+
 
   const initialPickupType = {};
 
