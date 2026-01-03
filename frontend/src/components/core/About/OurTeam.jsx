@@ -1,4 +1,4 @@
-  // components/about/OurTeam.jsx
+// components/about/OurTeam.jsx
 import React, { useRef, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Linkedin, Mail } from 'lucide-react';
