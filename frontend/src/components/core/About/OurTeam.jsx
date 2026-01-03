@@ -1,4 +1,4 @@
-// components/about/OurTeam.jsx
+  // components/about/OurTeam.jsx
 import React, { useRef, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Linkedin, Mail } from 'lucide-react';
@@ -54,33 +54,41 @@ const OurTeam = () => {
 
   const team = [
     {
-      name: "Rohan Karak",
-      role: "Full Stack Developer",
-      bio: "Full stack developer specializing in web applications and system architecture.",
-      image: "/api/placeholder/300/300",
-      color: "from-green-400 to-emerald-500"
-    },
+    name: "Rohan Karak",
+    role: "Full Stack Developer",
+    bio: "Full stack developer specializing in web applications and system architecture.",
+    image: "/api/placeholder/300/300",
+    color: "from-green-400 to-emerald-500",
+    email: "mailto:karakrohan2005@gmail.com",
+    linkedin: "https://www.linkedin.com/in/rohan-karak-9a0b78288/"
+  },
+     {
+    name: "Srinjoy Mahanti",
+    role: "Backend Developer",
+    bio: "Backend developer focused on building robust and scalable server-side solutions.",
+    image: "/api/placeholder/300/300",
+    color: "from-green-400 to-emerald-500",
+    email: "mailto:srinjoymahanti@gmail.com",
+    linkedin: "https://www.linkedin.com/in/srinjoy-mahanti-6168b5306/"
+  },
     {
-      name: "Srinjay ",
-      role: "Full Stack Developer",
-      bio: "Creative designer and frontend developer focused on building intuitive user experiences.",
-      image: "/api/placeholder/300/300", 
-      color: "from-purple-400 to-purple-500"
-    },
-    {
-      name: "Chandan",
-      role: "Backend Developer",
-      bio: "Backend developer focused on building robust and scalable server-side solutions.",
-      image: "/api/placeholder/300/300",
-      color: "from-blue-400 to-blue-500"
-    },
-    {
-      name: "Diganta",
-      role: "Frontend Developer",
-      bio: "AI/ML developer specializing in intelligent systems and data-driven solutions.",
-      image: "/api/placeholder/300/300",
-      color: "from-orange-400 to-orange-500"
-    }
+    name: "Chandan Gorain",
+    role: "Frontend Developer",
+    bio: "Creative designer and frontend developer focused on building intuitive user experiences.",
+    image: "/api/placeholder/300/300",
+    color: "from-green-400 to-emerald-500",
+    email: "mailto:chandangorain111@gmail.com",
+    linkedin: "https://www.linkedin.com/in/chandangorain/"
+  },
+   {
+    name: "Diganta Maity",
+    role: "UI UXDeveloper",
+    bio: "Full stack developer specializing in web applications and system architecture.",
+    image: "/api/placeholder/300/300",
+    color: "from-green-400 to-emerald-500",
+    email: "mailto:digantamaity96@gamil.com",
+    linkedin: "https://www.linkedin.com/in/diganta-maity-94737935a?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+  },
   ];
 
   return (
@@ -121,13 +129,33 @@ const OurTeam = () => {
                 <p className={`${themeStyles.memberBio} text-sm leading-relaxed mb-4 transition-colors duration-300`}>{member.bio}</p>
                 
                 <div className="flex justify-center space-x-3">
-                  <button className={`p-2 ${themeStyles.socialBg} rounded-full transition-colors duration-300`}>
-                    <Mail className={`w-4 h-4 ${themeStyles.socialIcon}`} />
-                  </button>
-                  <button className={`p-2 ${themeStyles.socialBg} rounded-full transition-colors duration-300`}>
-                    <Linkedin className={`w-4 h-4 ${themeStyles.socialIcon}`} />
-                  </button>
-                </div>
+
+  {/* Email */}
+  {member.email && (
+    <a
+      href={member.email}
+      className={`p-2 ${themeStyles.socialBg} rounded-full transition-colors duration-300`}
+      aria-label="Email"
+    >
+      <Mail className={`w-4 h-4 ${themeStyles.socialIcon}`} />
+    </a>
+  )}
+
+  {/* LinkedIn */}
+  {member.linkedin && (
+    <a
+      href={member.linkedin}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`p-2 ${themeStyles.socialBg} rounded-full transition-colors duration-300`}
+      aria-label="LinkedIn"
+    >
+      <Linkedin className={`w-4 h-4 ${themeStyles.socialIcon}`} />
+    </a>
+  )}
+
+</div>
+
               </div>
             </motion.div>
           ))}
