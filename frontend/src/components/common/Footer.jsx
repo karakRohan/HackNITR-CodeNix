@@ -74,7 +74,7 @@ const Footer = () => {
                 <img src="/Logo2.png" alt="logo" className="w-full h-full" />
               </motion.div>
               <span className="text-2xl font-medium text-white/70">
-                Enviromat
+                EcoCollect
               </span>
             </motion.div>
 
@@ -307,7 +307,7 @@ const Footer = () => {
               whileHover={{ color: '#9CA3AF' }}
               transition={{ duration: 0.2 }}
             >
-              © 2026 Tech Squad. All rights reserved.
+              © 2026 CodeNix. All rights reserved.
             </motion.div>
             <div className="flex space-x-6 text-sm">
               {['Privacy Policy', 'Terms of Services', 'Accessibility'].map((policy, index) => (
