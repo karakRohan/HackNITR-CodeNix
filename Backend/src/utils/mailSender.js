@@ -13,6 +13,7 @@ const mailSender = async (email, title, body) => {
        port: 465,     // ✅ SSL port for Gmail
     })
 
+
     let info = await transporter.sendMail({
       from: `"ENVIROMAT" <${process.env.MAIL_USER}>`, // sender address
       to: `${email}`, // list of receivers
@@ -26,5 +27,6 @@ const mailSender = async (email, title, body) => {
     return error.message
   }
 }
+
 
 module.exports = mailSender

@@ -1,7 +1,7 @@
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
-function generateToken(user) {
+const generateToken = (user) => {
   return jwt.sign(
     {
       id: user._id,
@@ -9,9 +9,27 @@ function generateToken(user) {
       accountType: user.accountType,
     },
     process.env.JWT_SECRET,
-    { expiresIn: "24h" }
+    {
+      expiresIn: "24h",
+    }
   );
-}
+};
+
+module.exports = generateToken;
+
+
+// function generateToken(user) {
+//   return jwt.sign(
+//     {
+//       id: user._id,
+//       email: user.email,
+//       accountType: user.accountType,
+//     },
+//     process.env.JWT_SECRET,
+//     { expiresIn: "24h" }
+//   );
+// }
+
 
 // Helper function for token generation, user object transformation, and cookie response
 function handleAuthSuccess(user, res, message) {
