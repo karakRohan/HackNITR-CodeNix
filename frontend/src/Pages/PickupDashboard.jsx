@@ -5,7 +5,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import gsap from 'gsap';
 import { toast } from 'react-hot-toast';
 
-// Import all modular components
 import DashboardHeader from '../components/core/PickUpDashboard/DashboardHeader';
 import ScheduledPickups from '../components/core/PickUpDashboard/ScheduledPickup';
 import EmergencyPickups from '../components/core/PickUpDashboard/EmergencyPickup';

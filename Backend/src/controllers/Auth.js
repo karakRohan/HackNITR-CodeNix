@@ -17,14 +17,14 @@ function validateEmailAndPassword(email, password, res) {
     if (!validator.isEmail(email)) {
         res.status(403).json({
             success: false,
-            message: "Invalid Email",
+            message: "Email is invalid",
         });
         return false;
     }
     if (!validator.isStrongPassword(password)) {
         res.status(403).json({
             success: false,
-            message: "Weak Password",
+            message: "password is weak",
         });
         return false;
     }
