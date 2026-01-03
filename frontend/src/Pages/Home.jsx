@@ -129,7 +129,7 @@ const Home = () => {
             direction="right"
             className="bg-gradient-to-r from-green-300 to-blue-400 border-y-green-400 w-[110%]"
             textClassName="text-4xl md:text-5xl font-medium text-gray-600"
-            pauseOnHover={false}
+            pauseOnHover={true}
           />
         </div>
 
