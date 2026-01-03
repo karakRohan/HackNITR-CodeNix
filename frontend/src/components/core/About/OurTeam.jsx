@@ -54,30 +54,30 @@ const OurTeam = () => {
 
   const team = [
     {
-      name: "Rohan Karak",
-      role: "Full Stack Developer",
-      bio: "Full stack developer specializing in web applications and system architecture.",
+      name: "Rohan Karak(TeamLead)",
+      role: "Backend Developer",
+      bio: "Backend developer and team lead passionate about building scalable and efficient systems.",
       image: "/api/placeholder/300/300",
       color: "from-green-400 to-emerald-500"
     },
     {
-      name: "Srinjay ",
-      role: "Full Stack Developer",
-      bio: "Creative designer and frontend developer focused on building intuitive user experiences.",
+      name: "Srinjoy Mahanti ",
+      role: "Backend Developer",
+      bio: "Backend developer specializing in server-side logic and database management.",
       image: "/api/placeholder/300/300", 
       color: "from-purple-400 to-purple-500"
     },
     {
-      name: "Chandan",
-      role: "Backend Developer",
-      bio: "Backend developer focused on building robust and scalable server-side solutions.",
+      name: "Chandan Gorain",
+      role: "Frontend Developer",
+      bio: "Frontend developer focused on building responsive and interactive user interfaces.",
       image: "/api/placeholder/300/300",
       color: "from-blue-400 to-blue-500"
     },
     {
-      name: "Diganta",
-      role: "Frontend Developer",
-      bio: "AI/ML developer specializing in intelligent systems and data-driven solutions.",
+      name: "Diganta Maity",
+      role: "UI/UX Designer",
+      bio: "UI/UX designer with a passion for creating beautiful and functional interfaces.",
       image: "/api/placeholder/300/300",
       color: "from-orange-400 to-orange-500"
     }
