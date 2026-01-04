@@ -20,8 +20,6 @@ const sendWastePickupSMS = async (to, pickupId, wasteType, quantity, address, cu
       to
     });
 
-    
-
     console.log('Waste Pickup SMS sent:', message.sid);
     return message.sid;
   } catch (err) {
