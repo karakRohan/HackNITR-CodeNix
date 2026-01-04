@@ -1,100 +1,208 @@
-// Core modules
-const express = require("express");
+// // Core modules
+// const express = require("express");
+// const cookieParser = require("cookie-parser");
+// const fileUpload = require("express-fileupload");
+// const cors = require("cors");
+// require("dotenv").config();
+
+// // Configuration imports
+// const { dbconnect } = require("./config/database");
+// const cloudinary = require("./config/cloudinary");
+
+// // Route imports
+// const userRoutes = require("./routes/user");
+// const pickerRoutes = require("./routes/pickerRoute");
+// const orderRoute = require("./routes/orderRoute");
+// const wasteRoute = require("./routes/wasteRoute");
+// const blogRoutes = require("./routes/blogRoute");
+// const smsRoutes = require("./routes/smsRoute");
+
+// // App initialization
+// const app = express();
+// const PORT = process.env.PORT || 4000;
+
+// // =======================================
+// // Middleware Configuration
+// // =======================================
+
+// app.use(express.json());
+// app.use(cookieParser());
+
+// const allowedOrigins = [
+//   "http://localhost:5173",
+//   "http://localhost:5174",
+//   "https://enviro-mat.vercel.app",
+// ];
+
+// app.use(
+//   cors({
+//     origin: function (origin, callback) {
+//       if (!origin || allowedOrigins.includes(origin)) {
+//         callback(null, true);
+//       } else {
+//         callback(new Error("Not allowed by CORS"));
+//       }
+//     },
+//     credentials: true,
+//   })
+// );
+
+// app.use(
+//   fileUpload({
+//     useTempFiles: true,
+//     tempFileDir: "/tmp/",
+//   })
+// );
+
+// // =======================================
+// // Route Configuration
+// // =======================================
+
+// app.use("/api/v1/auth", userRoutes);
+// app.use("/api/v1/picker", pickerRoutes);
+// app.use("/api/v1/order", orderRoute);
+// app.use("/api/v1/waste", wasteRoute);
+// app.use("/api/v1/blogs", blogRoutes);
+// app.use("/api/v1/sms", smsRoutes);
+
+// // =======================================
+// // Health Check Route
+// // =======================================
+
+// app.get("/", (req, res) => {
+//   return res.json({
+//     success: true,
+//     message: "EnviroMat API is running successfully!",
+//     timestamp: new Date().toISOString(),
+//   });
+// });
+
+// // =======================================
+// // Server & Database Initialization
+// // =======================================
+
+// const initializeConnection = async () => {
+//   try {
+//     await dbconnect();
+//     console.log("connected to MongoDB");
+
+//     cloudinary.cloudinaryConnect();
+//     console.log("connected to Cloudinary");
+
+//     app.listen(PORT, () => {
+//       console.log(`Listening at port ${PORT}`);
+//     });
+//   } catch (err) {
+//     console.log("Error " + err);
+//   }
+// };
+
+// initializeConnection();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const express = require("express")
+const {dbconnect} =require("./config/database")
+const cloudinary = require("./config/cloudinary");
 const cookieParser = require("cookie-parser");
 const fileUpload = require("express-fileupload");
-const cors = require("cors");
+const dotenv = require("dotenv");
 require("dotenv").config();
-
-// Configuration imports
-const { dbconnect } = require("./config/database");
-const cloudinary = require("./config/cloudinary");
-
-// Route imports
+const cors = require("cors");
+const wasteRoute=require("./routes/wasteRoute");
+const orderRoute=require("./routes/orderRoute")
 const userRoutes = require("./routes/user");
 const pickerRoutes = require("./routes/pickerRoute");
-const orderRoute = require("./routes/orderRoute");
-const wasteRoute = require("./routes/wasteRoute");
 const blogRoutes = require("./routes/blogRoute");
-const smsRoutes = require("./routes/smsRoute");
+const smsRoutes=require('./routes/smsRoute')
 
-// App initialization
+// Middlewares
 const app = express();
-const PORT = process.env.PORT || 4000;
-
-// =======================================
-// Middleware Configuration
-// =======================================
-
 app.use(express.json());
 app.use(cookieParser());
+
+const PORT = process.env.PORT || 4000;
 
 const allowedOrigins = [
   "http://localhost:5173",
   "http://localhost:5174",
-  "https://enviro-mat.vercel.app",
-];
+  "https://enviro-mat.vercel.app"
+]
 
 app.use(
   cors({
     origin: function (origin, callback) {
       if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
+        callback(null, true)
       } else {
-        callback(new Error("Not allowed by CORS"));
+        callback(new Error("Not allowed by CORS"))
       }
     },
     credentials: true,
   })
-);
+)
+
 
 app.use(
-  fileUpload({
-    useTempFiles: true,
-    tempFileDir: "/tmp/",
-  })
+	fileUpload({
+		useTempFiles: true,
+		tempFileDir: "/tmp/",
+	})
 );
 
-// =======================================
-// Route Configuration
-// =======================================
-
+// Setting up routes
 app.use("/api/v1/auth", userRoutes);
 app.use("/api/v1/picker", pickerRoutes);
-app.use("/api/v1/order", orderRoute);
+app.use("/api/v1/order",orderRoute);
 app.use("/api/v1/waste", wasteRoute);
 app.use("/api/v1/blogs", blogRoutes);
 app.use("/api/v1/sms", smsRoutes);
 
-// =======================================
-// Health Check Route
-// =======================================
-
+// Health check endpoint
 app.get("/", (req, res) => {
-  return res.json({
-    success: true,
-    message: "EnviroMat API is running successfully!",
-    timestamp: new Date().toISOString(),
-  });
+	return res.json({
+		success: true,
+		message: "EnviroMat API is running successfully!",
+		timestamp: new Date().toISOString()
+	});
 });
 
-// =======================================
-// Server & Database Initialization
-// =======================================
 
-const initializeConnection = async () => {
-  try {
-    await dbconnect();
-    console.log("connected to MongoDB");
 
-    cloudinary.cloudinaryConnect();
-    console.log("connected to Cloudinary");
+// app.get("/", (req, res) => {
+// 	return res.json({
+// 		success: true,
+// 		message: "Your server is up and running ...",
+// 	});
+// });
 
-    app.listen(PORT, () => {
-      console.log(`Listening at port ${PORT}`);
-    });
-  } catch (err) {
-    console.log("Error " + err);
-  }
-};
 
-initializeConnection();
+const InitlizeConnection = async()=>{
+
+    try{
+        await dbconnect();
+        console.log("connected to MongoDB");
+        cloudinary.cloudinaryConnect();
+         console.log("connected to Cloudinary");
+        app.listen(PORT, ()=>{
+            console.log(`Listening at port ${PORT} `);
+        })
+    }
+    catch(err){
+        console.log("Error "+err);
+    }
+}
+
+InitlizeConnection();
+

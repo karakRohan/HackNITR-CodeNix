@@ -21,15 +21,13 @@ exports.createBlog = async (req, res) => {
         const BlogImage = req.files.image;
         
         // Step 1: Validate file type before Cloudinary upload
-
         const validImageTypes = ['jpg', 'jpeg', 'png', 'webp', 'gif'];
-        //const validImageTypes = ['jpg', 'jpeg', 'png', 'webp', 'gif'];
         const fileExtension = BlogImage.name.split('.').pop().toLowerCase();
         
         if (!validImageTypes.includes(fileExtension)) {
             return res.status(400).json({
                 success: false,
-                message: "Image type is invalid. Only jpg, jpeg, png, webp, and gif are allowed"
+                message: "Invalid image type. Only jpg, jpeg, png, webp, and gif are allowed"
             });
         }
         
@@ -37,8 +35,7 @@ exports.createBlog = async (req, res) => {
         if (!title || !content || !category) {
             return res.status(400).json({
                 success: false,
-                // success: true;
-                message: "All the required fields must be provided"
+                message: "All required fields must be provided"
             });
         }
 
@@ -73,8 +70,6 @@ exports.createBlog = async (req, res) => {
 
         return res.status(201).json({
             success: true,
-
-            //success: true,
             message: "Blog created successfully",
             data: blog
         });
@@ -89,22 +84,20 @@ exports.createBlog = async (req, res) => {
     }
 };
 
-
+// Get all blogs (simplified - no filters, no pagination)
 exports.getAllBlogs = async (req, res) => {
     try {
-        
+        // Fetch all published, non-deleted blogs
         const blogs = await Blog.find({ 
             status: "published", 
             isDeleted: false 
         })
             .populate('author', 'firstName lastName email image')
             .populate('likes', 'firstName lastName')
-
             .populate('comments.user', 'firstName lastName image')
-            
-            .sort({ createdAt: -1 }); 
+            .sort({ createdAt: -1 }); // Sort by latest first
 
-        
+        // Add virtual fields for likes and comments count
         const blogsWithCounts = blogs.map(blog => ({
             ...blog.toJSON(),
             likesCount: blog.likes.length,

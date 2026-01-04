@@ -1,8 +1,6 @@
 function calculateCredits(wasteType, quantity, qualityRating) {
   let baseRate = 2; // default points per kg
 
-
-// Start of changes and Comparisons and Calculations
   switch (wasteType) {
     case "plastic":
       baseRate = 3;
