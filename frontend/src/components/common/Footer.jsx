@@ -309,7 +309,7 @@ const Footer = () => {
               whileHover={{ color: '#9CA3AF' }}
               transition={{ duration: 0.2 }}
             >
-              © 2026 CodeNix. All rights reserved.
+              © 2026 Team:- CodeNix. All rights reserved.
             </motion.div>
             <div className="flex space-x-6 text-sm">
               {['Privacy Policy', 'Terms of Services', 'Accessibility'].map((policy, index) => (
