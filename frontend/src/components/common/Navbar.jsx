@@ -90,9 +90,9 @@ const Navbar = () => {
               onChange={(e) => changeLanguage(e.target.value)}
               className="bg-transparent border border-gray-300 dark:border-gray-600 text-sm rounded-full px-3 py-1 cursor-pointer"
             >
-              <option value="en">EN</option>
-              <option value="hi">HI</option>
-              <option value="bn">BN</option>
+              <option value="en">Eng</option>
+              <option value="hi">हिंदी</option>
+              <option value="bn">বাংলা</option>
             </select>
 
             {/* Theme Toggle */}
